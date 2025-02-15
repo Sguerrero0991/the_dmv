@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 RSpec.describe Dmv do
   before(:each) do
     @dmv = Dmv.new
