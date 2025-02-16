@@ -7,6 +7,7 @@ class Vehicle
               :model,
               :engine,
               :registration_date
+  attr_accessor :plate_type
 
   def initialize(vehicle_details)
   #  binding.pry
@@ -25,4 +26,13 @@ class Vehicle
   def electric_vehicle?
     @engine == :ev
   end
+
+  def registration_date
+    @registration_date = Date.today
+  end
+  
+  
+
+
+
 end
