@@ -10,7 +10,6 @@ class Vehicle
   attr_accessor :plate_type
 
   def initialize(vehicle_details)
-  #  binding.pry
     @vin = vehicle_details[:vin]
     @year = vehicle_details[:year]
     @make = vehicle_details[:make]
@@ -30,9 +29,4 @@ class Vehicle
   def registration_date
     @registration_date = Date.today
   end
-  
-  
-
-
-
 end
