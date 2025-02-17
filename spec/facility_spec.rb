@@ -131,10 +131,6 @@ RSpec.describe Facility do
     @facility_1.add_service('Renew License')
     @facility_1.renew_drivers_license(@registrant_1)
     expect(@registrant_1.license_data[:renewed]).to eq(true)
-
   end
-  
-
-
 end
 
