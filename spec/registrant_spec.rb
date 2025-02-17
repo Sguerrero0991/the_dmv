@@ -41,5 +41,4 @@ RSpec.describe '#initialize' do
     expect(registrant_1.earn_permit).to eq(true)
     expect(registrant_2.earn_permit).to eq(true) 
   end
-
 end
