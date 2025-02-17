@@ -55,9 +55,4 @@ class Facility
     end
     return registrant.license_data[:renewed] 
   end
-
-
-
-
-
 end
