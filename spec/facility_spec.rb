@@ -8,7 +8,11 @@ RSpec.describe Facility do
     @bolt = Vehicle.new({vin: '987654321abcdefgh', year: 2019, make: 'Chevrolet', model: 'Bolt', engine: :ev} )
     @camaro = Vehicle.new({vin: '1a2b3c4d5e6f', year: 1969, make: 'Chevrolet', model: 'Camaro', engine: :ice} )
     @facility_1.add_service('Vehicle Registration')
+    @registrant_1 = Registrant.new('Bruce', 18, true)
+    @registrant_2 = Registrant.new('Penny', 16 )
+    @registrant_3 = Registrant.new('Tucker', 15 )
   end
+
   describe '#initialize' do
     it 'can initialize' do
       expect(@facility_1).to be_an_instance_of(Facility)
@@ -97,6 +101,40 @@ RSpec.describe Facility do
     expect(@facility_2.registered_vehicles).to eq([])
     expect(@facility_2.collected_fees).to eq(0)
   end
+
+  it 'administers a written test' do
+    @facility_1.administer_written_test(@registrant_1)
+    expect(@registrant_1.license_data[:written]).to eq(false)
+
+    @facility_1.add_service('Written Test')
+    @facility_1.administer_written_test(@registrant_1)
+    expect(@registrant_1.license_data[:written]).to eq(true)
+  end
+
+  it 'checks if registrant age is at least 16' do
+    expect(@registrant_2.age).to eq(16)
+  end
+
+  it 'administers a road test' do
+    @facility_1.administer_road_test(@registrant_3)
+    expect(@registrant_3.license_data[:license]).to eq(false)
+
+    @facility_1.add_service('Road Test')
+    @facility_1.administer_road_test(@registrant_3)
+    expect(@registrant_3.license_data[:license]).to eq(true)
+  end
+
+  it 'renews a license' do
+    @facility_1.renew_drivers_license(@registrant_1)
+    expect(@registrant_1.license_data[:renewed]).to eq(false)
+    
+    @facility_1.add_service('Renew License')
+    @facility_1.renew_drivers_license(@registrant_1)
+    expect(@registrant_1.license_data[:renewed]).to eq(true)
+
+  end
+  
+
 
 end
 
