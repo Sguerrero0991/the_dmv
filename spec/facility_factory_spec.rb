@@ -5,7 +5,6 @@ RSpec.describe FacilityFactory do
   before(:each) do
     @facility_factory = FacilityFactory.new
     @co_dmv_office_locations = DmvDataService.new.co_dmv_office_locations
-
   end
 
   describe '#initialize' do
